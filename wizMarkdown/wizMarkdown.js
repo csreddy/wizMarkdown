@@ -5862,11 +5862,14 @@ angular.module('wiz.markdown')
 		controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) { }],
 		link: function (scope, elem, attrs, ctrl) {
 			var editor = new MarkdownDeepEditor.Editor(elem.find('textarea')[0], null);
-			editor.onPostUpdateDom = function (editor) {
+		
+			/*editor.onPostUpdateDom = function (editor) {
 				$timeout(function () {
 					scope.content = elem.find('textarea').val();
 				});
-			};
+			};*/
+			
+			scope.content = elem.find('textarea').val();
 			scope.toolbarBottom = attrs.toolbar === 'bottom';
 			// Exposes editor to other directives
 			ctrl.editor = editor;
